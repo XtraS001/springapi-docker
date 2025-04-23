@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import net.javaguides.ems_backend.dto.EmployeeDto;
 import net.javaguides.ems_backend.service.EmployeeService;
@@ -30,6 +31,7 @@ public class EmployeeController {
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }
 
+    @Operation(summary = "Get user by ID") // <- for Swagger
     // Build Get Employee REST API
     @GetMapping("{id}")
     public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable("id") Long employeeId) {
